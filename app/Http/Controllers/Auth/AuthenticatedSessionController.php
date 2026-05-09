@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -33,6 +34,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Update status to active on login
+        $request->user()->update(['status' => 'active']);
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 
@@ -41,6 +45,15 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $user = Auth::user();
+        
+        if ($user) {
+            Log::info('User logging out: ' . $user->email);
+            // Force update to database directly
+            \App\Models\User::where('id', $user->id)->update(['status' => 'inactive']);
+            Log::info('User status set to inactive for: ' . $user->email);
+        }
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

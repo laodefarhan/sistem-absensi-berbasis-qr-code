@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('role')->default('siswa'); // roles: super_admin, guru_kepsek, satpam, siswa
+            $table->string('status')->default('active'); // status: active, inactive
             $table->rememberToken();
             $table->timestamps();
         });

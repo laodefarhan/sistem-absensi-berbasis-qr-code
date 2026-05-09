@@ -45,7 +45,31 @@ class HandleInertiaRequests extends Middleware
             'quote' => ['message' => trim($message), 'author' => trim($author)],
             'auth' => [
                 'user' => $request->user(),
+                'student' => $request->user()?->role === 'siswa' ? $request->user()->student : null,
             ],
+            'activeStaff' => $request->user()?->role === 'super_admin' 
+                ? \App\Models\User::whereIn('role', ['super_admin', 'guru_kepsek', 'satpam'])
+                    ->select('id', 'name', 'role', 'status')
+                    ->get()
+                : [],
+            'stats' => $request->user()?->role === 'super_admin' ? [
+                'total_students' => \App\Models\User::where('role', \App\Models\User::ROLE_SISWA)->count(),
+                'total_teachers' => \App\Models\User::where('role', \App\Models\User::ROLE_GURU_KEPSEK)->count(),
+                'total_security' => \App\Models\User::where('role', \App\Models\User::ROLE_SATPAM)->count(),
+                'attendance_today' => \App\Models\Attendance::whereDate('recorded_at', \Carbon\Carbon::today())->count(),
+                'late_students' => 0,
+                'out_permission' => 0,
+                'teachers_present' => 0,
+                'weekly_data' => collect(range(6, 0))->map(function ($daysAgo) {
+                    $date = \Carbon\Carbon::today()->subDays($daysAgo);
+                    return [
+                        'name' => $date->translatedFormat('D'),
+                        'hadir' => \App\Models\Attendance::whereDate('recorded_at', $date)->count(),
+                        'lambat' => 0, // Placeholder
+                        'izin' => 0,   // Placeholder
+                    ];
+                }),
+            ] : null,
             'ziggy' => fn (): array => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
