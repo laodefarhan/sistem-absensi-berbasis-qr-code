@@ -31,7 +31,28 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-export default function ScoreIndex({ scores, students }: { scores: any[], students: any[] }) {
+interface Student {
+    id: number;
+    name: string;
+    grade: string;
+}
+
+interface Score {
+    id: number;
+    subject: string;
+    score: number;
+    semester: string;
+    student: {
+        user: {
+            name: string;
+        };
+        grade?: {
+            name: string;
+        };
+    };
+}
+
+export default function ScoreIndex({ scores, students }: { scores: Score[], students: Student[] }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { data, setData, post, processing, reset, errors } = useForm({
         student_id: '',

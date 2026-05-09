@@ -20,9 +20,17 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-export default function QRCodeIndex({ students }: { students: any[] }) {
+interface Student {
+    id: number;
+    name: string;
+    grade: string;
+    nis: string;
+    qr_code: string | null;
+}
+
+export default function QRCodeIndex({ students }: { students: Student[] }) {
     const downloadQR = (studentName: string, id: string) => {
-        const svg = document.getElementById(id) as any;
+        const svg = document.getElementById(id) as unknown as SVGSVGElement;
         if (!svg) return;
         const svgData = new XMLSerializer().serializeToString(svg);
         const canvas = document.createElement('canvas');

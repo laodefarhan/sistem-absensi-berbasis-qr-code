@@ -23,7 +23,24 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-export default function AttendanceIndex({ attendances }: { attendances: any[] }) {
+interface Attendance {
+    id: number;
+    recorded_at: string;
+    student: {
+        user: {
+            name: string;
+        };
+        nis: string;
+        grade?: {
+            name: string;
+        };
+    };
+    scanner?: {
+        name: string;
+    };
+}
+
+export default function AttendanceIndex({ attendances }: { attendances: Attendance[] }) {
     const { auth } = usePage<SharedData>().props;
     const isSuperAdmin = auth.user.role === 'super_admin';
     const [isScanning, setIsScanning] = useState(true);
@@ -36,8 +53,12 @@ export default function AttendanceIndex({ attendances }: { attendances: any[] })
                 alert(response.data.message);
                 window.location.reload(); 
             }
-        } catch (error: any) {
-            alert(error.response?.data?.message || 'Gagal melakukan absensi.');
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                alert(error.response?.data?.message || 'Gagal melakukan absensi.');
+            } else {
+                alert('Gagal melakukan absensi.');
+            }
         } finally {
             setTimeout(() => setIsScanning(true), 2000);
         }

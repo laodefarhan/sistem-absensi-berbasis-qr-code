@@ -39,7 +39,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
-    const { auth, stats } = usePage().props as any;
+    const { auth, stats } = usePage<SharedData>().props;
     const [showQRModal, setShowQRModal] = useState(false);
 
     const isSuperAdmin = auth.user.role === 'super_admin';
@@ -49,7 +49,7 @@ export default function Dashboard() {
         if (urlParams.get('show_qr') === 'true' && auth.user.role === 'siswa') {
             setShowQRModal(true);
         }
-    }, []);
+    }, [auth.user.role]);
 
     const handleCloseQR = () => {
         setShowQRModal(false);

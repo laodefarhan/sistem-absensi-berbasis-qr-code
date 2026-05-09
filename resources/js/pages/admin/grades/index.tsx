@@ -39,7 +39,12 @@ interface GradeData {
     student_count: number;
 }
 
-export default function GradeIndex({ grades, teachers }: { grades: GradeData[], teachers: any[] }) {
+interface TeacherData {
+    id: number;
+    name: string;
+}
+
+export default function GradeIndex({ grades, teachers }: { grades: GradeData[], teachers: TeacherData[] }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { data, setData, post, processing, reset, errors } = useForm({
         name: '',

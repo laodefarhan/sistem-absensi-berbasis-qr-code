@@ -26,18 +26,8 @@ import {
 } from 'lucide-react';
 
 export function AppSidebar() {
-    const { auth, activeStaff = [] } = usePage<SharedData>().props;
+    const { auth } = usePage<SharedData>().props;
     const userRole = auth.user.role;
-
-    const getRoleLabel = (role: string) => {
-        const labels: Record<string, string> = {
-            super_admin: 'Admin',
-            guru_kepsek: 'Guru',
-            satpam: 'Satpam',
-            siswa: 'Siswa',
-        };
-        return labels[role] || role;
-    };
 
     const mainNavItems: NavItem[] = [
         {
