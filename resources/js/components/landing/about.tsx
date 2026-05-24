@@ -1,41 +1,45 @@
 export default function About() {
     return (
-        <section className="bg-surface-container-lowest py-24" id="about">
-            <div className="mx-auto max-w-container-max px-margin-mobile md:px-margin-desktop">
-                <div className="flex flex-col items-center gap-16 lg:flex-row">
-                    <div className="space-y-8 lg:w-1/2">
-                        <div>
-                            <span className="font-label-md tracking-widest text-primary uppercase">Tentang Sekolah</span>
-                            <h2 className="mt-2 font-headline text-headline-lg text-on-surface md:text-[40px]">SMAN 1 Digital Nusantara</h2>
+        <section className="py-24 bg-surface" id="about">
+            <div className="container mx-auto px-container-padding">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div className="relative">
+                        <div className="aspect-square rounded-3xl overflow-hidden glass-card">
+                            <img
+                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiF01jwrYR-kjBfvsTHidOvQvtXqQd_nrA2CZJP9uumPWkoYGkuKY54XETOPTqXzC4QZgm2XdBLVzAJnX-3HyAQC03PWH6Ih_Q6aouD78_HdZoCj2nPZmzB_9hWVl7MQKu9tfLgi_3aHSsc-Rd3Gdsd669qXQKlUYATyethzSLrqyHEi5iHXDSKIf8vbv-mxcfOgTV_aCkzCoJe1FPftngTVMzoLKbsEu_AV6U-08B7csU1F0U_OwMziOva_cGWfPe3ITMnF1Yi-xm"
+                            />
                         </div>
-                        <p className="text-body-lg leading-relaxed text-on-surface-variant">
-                            Sebagai pionir sekolah digital di tingkat nasional, kami mengintegrasikan teknologi canggih dalam setiap aspek pembelajaran. Dengan <strong className="text-secondary">Akreditasi A</strong>, kami berkomitmen mencetak generasi unggul yang siap menghadapi tantangan era industri 4.0.
-                        </p>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="inner-glow rounded-2xl border border-white/5 bg-surface-container p-6">
-                                <span className="material-symbols-outlined mb-3 text-primary">school</span>
-                                <h4 className="mb-1 font-bold text-label-md">Guru Profesional</h4>
-                                <p className="text-sm text-on-surface-variant">80+ Tenaga Pendidik Tersertifikasi</p>
-                            </div>
-                            <div className="inner-glow rounded-2xl border border-white/5 bg-surface-container p-6">
-                                <span className="material-symbols-outlined mb-3 text-secondary">meeting_room</span>
-                                <h4 className="mb-1 font-bold text-label-md">Fasilitas Modern</h4>
-                                <p className="text-sm text-on-surface-variant">45 Ruang Kelas Multimedia</p>
-                            </div>
+                        <div className="absolute -bottom-8 -right-8 glass-card p-8 rounded-3xl max-w-xs border-primary/20">
+                            <h3 className="font-headline-md text-headline-md text-primary mb-4">Visi Kami</h3>
+                            <p className="font-body-md text-body-md text-on-surface italic">
+                                "Mewujudkan generasi unggul, berkarakter, disiplin, dan berwawasan teknologi."
+                            </p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:w-1/2">
-                        <div className="glass-card group relative overflow-hidden rounded-3xl p-8">
-                            <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/10 blur-3xl transition-colors group-hover:bg-primary/20"></div>
-                            <span className="material-symbols-outlined mb-6 text-4xl text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>visibility</span>
-                            <h3 className="mb-4 font-headline text-headline-md">Visi</h3>
-                            <p className="text-on-surface-variant">Menjadi pusat keunggulan pendidikan berbasis teknologi yang berlandaskan iman, taqwa, dan integritas global.</p>
-                        </div>
-                        <div className="glass-card group relative mt-6 overflow-hidden rounded-3xl p-8 md:mt-12">
-                            <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-secondary/10 blur-3xl transition-colors group-hover:bg-secondary/20"></div>
-                            <span className="material-symbols-outlined mb-6 text-4xl text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>rocket_launch</span>
-                            <h3 className="mb-4 font-headline text-headline-md">Misi</h3>
-                            <p className="text-on-surface-variant">Menyelenggarakan pembelajaran inovatif, mengembangkan bakat digital, dan membangun karakter disiplin melalui sistem manajemen modern.</p>
+                    <div>
+                        <h2 className="font-headline-lg text-headline-lg mb-6">
+                            Membangun Masa Depan <br />
+                            Melalui Inovasi Digital
+                        </h2>
+                        <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                            SMAN 1 Digital Nusantara adalah sekolah menengah atas modern yang berfokus pada pengembangan teknologi, karakter, dan kualitas pendidikan berbasis digital. Kami percaya bahwa integrasi teknologi dalam kurikulum bukan sekadar alat, melainkan fondasi untuk bersaing di panggung global.
+                        </p>
+                        <div className="space-y-4">
+                            <div className="flex items-start gap-4 p-4 rounded-2xl glass-card">
+                                <span className="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg">verified</span>
+                                <div>
+                                    <h4 className="font-label-md text-label-md font-bold mb-1">Kurikulum Berbasis Kompetensi</h4>
+                                    <p className="font-label-sm text-label-sm text-on-surface-variant">Metode pembelajaran yang mengutamakan pemahaman konsep dan aplikasi praktis.</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-4 p-4 rounded-2xl glass-card">
+                                <span className="material-symbols-outlined text-tertiary p-2 bg-tertiary/10 rounded-lg">psychology</span>
+                                <div>
+                                    <h4 className="font-label-md text-label-md font-bold mb-1">Pengembangan Karakter AI</h4>
+                                    <p className="font-label-sm text-label-sm text-on-surface-variant">Integrasi kecerdasan buatan untuk membantu personalisasi karakter siswa.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

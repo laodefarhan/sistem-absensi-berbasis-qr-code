@@ -1,62 +1,53 @@
 export default function Testimonials() {
     return (
-        <section className="py-24">
-            <div className="mx-auto max-w-container-max px-margin-mobile md:px-margin-desktop">
-                <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-                    <div>
-                        <span className="font-label-md tracking-widest text-primary uppercase">Apa Kata Mereka</span>
-                        <h2 className="mt-4 mb-8 font-headline text-headline-lg">Dipercaya Oleh Ribuan Pengguna</h2>
-                        <div className="space-y-6">
-                            <div className="glass-card border-l-4 border-l-primary rounded-2xl p-6">
-                                <p className="mb-4 font-body-md italic text-on-surface-variant">"Sistem ini sangat membantu kami memantau kehadiran siswa secara real-time. Orang tua juga merasa lebih tenang karena ada notifikasi langsung."</p>
-                                <div className="flex items-center gap-4">
-                                    <img
-                                        className="h-12 w-12 rounded-full object-cover"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCalKdLeOVt4lPEwARd_8w8G-TzXKIM4jU28MuW_httfHAxD8QPM0v_fmQWwPLB_uHPyOj5iMLbnOoOO846bahfT767d6oWlz0b2BzB_rN1hfZI2duc7wNI2914o1IV4Etj-vpHercULVaEg86bA7vlICPOG3cFxvkIpG2p8Yv83PLWJTHwis0aG3dzJd2Z84ODvau9QrVGrJ23lL5xajmtHYCzLrfOqtHAoxYgXXToKyYqM1z54XlXfDTBKRG4wJAbdcj16xmiL3Y"
-                                        alt="Drs. H. Ahmad Fauzi"
-                                    />
-                                    <div>
-                                        <div className="font-bold text-on-surface">Drs. H. Ahmad Fauzi</div>
-                                        <div className="text-sm text-on-surface-variant">Kepala Sekolah</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="glass-card border-l-4 border-l-secondary rounded-2xl p-6">
-                                <p className="mb-4 font-body-md italic text-on-surface-variant">"Aplikasinya sangat user-friendly. Tidak pernah ada kendala saat melakukan scan setiap pagi."</p>
-                                <div className="flex items-center gap-4">
-                                    <img
-                                        className="h-12 w-12 rounded-full object-cover"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9HevKeeJHldC3b8wR7lBKfj-ziA4ihE0sgTSa6xH_f8MTXTqQSJ8XIsg1nCuI8jZen9lrEIORJ4QBwGiWK1G9G13BYiy1kIFc7DL2JFPelao_vbXx5mFJqaFhtIfkAhgX7XeoqRaz2BzxmKXLSG-NmC1KhDjfSPXJYqnKb3snFCLoeP_IwxcDBrP-aEwEf2V8YLQGYtF89d666L1hABHmVyJsoAgO2zBLCPWvLme0JumISN7tr0gr2liVSsQDnqPMKjXoupKBDOQ"
-                                        alt="Siti Sarah"
-                                    />
-                                    <div>
-                                        <div className="font-bold text-on-surface">Siti Sarah</div>
-                                        <div className="text-sm text-on-surface-variant">Siswa Kelas XI</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="hidden md:block">
-                        <div className="glass-card relative h-[500px] w-full overflow-hidden border-white/5 rounded-3xl">
+        <section className="py-24 bg-surface">
+            <div className="container mx-auto px-container-padding">
+                <h2 className="font-headline-lg text-headline-lg text-center mb-16">Apa Kata Mereka?</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                    <div className="glass-card p-8 rounded-3xl">
+                        <div className="flex items-center gap-4 mb-6">
                             <img
-                                className="h-full w-full object-cover opacity-50"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdSd2cfhC5PXKdjs5msEof90tdI02yVQWKl5t6N4vBgmpJMnOrtmbUum4MOK5QrVNU79Nf8U9JyE7FPf1yyGS5p031P-UGf3nN5NXxmtdkDHOEA2RsA96WenmyVuhjnw0uA6X00b9711gjW1npaPb9cN3NL_NyOXWlCWtmm3E2DHb5529QHN5O6lvGX9mdxc4KOoOz_56LEI9RJOEcoZR4m6Q3kUXM2qcbDWHx6VBEbb7U6VjxdBC6Dsju46DlbLfA3J-NEfc1J0Q"
-                                alt="Students using digital platform"
+                                className="w-12 h-12 rounded-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC41ax8j5kbnA1IFsxetd5OIMAXApg7mycn_akuHW235pF5fOQEDybO1WAHLqxIeshtjODkDKOW9LgwzYPsvwFaOrg_GH-VZyeU47Ve1vlEZ8aUTlsZvnd1ol0zjC4By-oG3Cmlh_FrSdC0PSnIYGo93FhJ4JAXKEUYN0blBbYyzB2_P285y4gdGNSB72iloZvNXMLGr8MC9o2gvMO-ugFVngcbPr6rO_cTtvMDzVAJZay9-dk2qd5zVjecUfkd3yY_75jZ9uqgB7vT"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-                            <div className="glass-card absolute bottom-8 left-8 right-8 rounded-2xl p-6">
-                                <div className="mb-2 flex items-center gap-2">
-                                    <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                                    <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                                    <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                                    <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                                    <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                                </div>
-                                <h4 className="font-headline text-headline-md">Skor Kepuasan 4.9/5.0</h4>
-                                <p className="text-sm text-on-surface-variant">Dari 100+ Sekolah yang menggunakan platform kami.</p>
+                            <div>
+                                <div className="font-label-md text-label-md font-bold">Budi Santoso</div>
+                                <div className="font-label-sm text-label-sm text-on-surface-variant">Orang Tua Siswa</div>
                             </div>
                         </div>
+                        <p className="font-body-md text-body-md italic text-on-surface-variant">
+                            "Sistem WhatsApp notification sangat membantu saya memantau kehadiran anak saya setiap hari tanpa harus menelepon sekolah."
+                        </p>
+                    </div>
+                    <div className="glass-card p-8 rounded-3xl border-primary/30 shadow-[0_0_20px_rgba(79,70,229,0.1)] scale-105">
+                        <div className="flex items-center gap-4 mb-6">
+                            <img
+                                className="w-12 h-12 rounded-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU58qleVDyXqsGTs1AvQ8wcb-0ynMs-QFHPWI1FoYtk3hq5a5yambI8Pa78NhYBYIOL72qTZeYfRwrRKt4D5EAdtONE5UyKCo9fb4ARtex3WoK8soN-_9dDP7gQxAw58sUClaHwS0xuhQUCMOKLJYjK9We202YQTzsgBPlS7-yc9G-hXTfrQNxwEWmTLQiYSws0Vv5mo7DElQl9vSCuy7s7sML7A0Cx9pUIDDyjcOA1umcD-BtlKCznQC6Uj46Ar8B_zr_kQLXXe21"
+                            />
+                            <div>
+                                <div className="font-label-md text-label-md font-bold">Siti Aisyah</div>
+                                <div className="font-label-sm text-label-sm text-on-surface-variant">Siswa Kelas XII</div>
+                            </div>
+                        </div>
+                        <p className="font-body-md text-body-md italic text-on-surface-variant">
+                            "Belajar jadi jauh lebih seru dengan dashboard yang interaktif. Semua materi dan tugas terorganisir dengan sangat baik."
+                        </p>
+                    </div>
+                    <div className="glass-card p-8 rounded-3xl">
+                        <div className="flex items-center gap-4 mb-6">
+                            <img
+                                className="w-12 h-12 rounded-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn_PvJUSjjLFsJeH9S7z-2aTMO-1c4YHel5GBLYIWqtQZMmDiRnM2KzQh192z-urAZeXGyic0NmoTMFRUzc-NWw0_dVbtIpD5-r1ens4eEHa0WQ8I6vApoErk3UCzM8ay0aR5v0HSnMHkddaHEcMakwh4Sm4pwUYe-DTLpHhSWzPt7qFnp81GLMsPj2hpTVhc2ai0BupCHA-K3KEwMtCVuwci6-A5dPAjwVQ_XCAxegRe18ZaqTdFTqDd8yzfVl2SdtfgIM4HnR1Xs"
+                            />
+                            <div>
+                                <div className="font-label-md text-label-md font-bold">Dr. Ratna Sari</div>
+                                <div className="font-label-sm text-label-sm text-on-surface-variant">Kepala Sekolah</div>
+                            </div>
+                        </div>
+                        <p className="font-body-md text-body-md italic text-on-surface-variant">
+                            "Digitalisasi ini membawa efisiensi kerja yang luar biasa bagi staf pengajar dan transparansi bagi seluruh pemangku kepentingan."
+                        </p>
                     </div>
                 </div>
             </div>

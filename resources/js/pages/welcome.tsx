@@ -1,31 +1,15 @@
 import About from '@/components/landing/about';
-import CTA from '@/components/landing/cta';
 import Features from '@/components/landing/features';
 import Footer from '@/components/landing/footer';
 import Hero from '@/components/landing/hero';
-import HowItWorks from '@/components/landing/how-it-works';
 import Navbar from '@/components/landing/navbar';
+import Stats from '@/components/landing/stats';
 import Testimonials from '@/components/landing/testimonials';
 import { Head } from '@inertiajs/react';
 import { useEffect } from 'react';
 
 export default function Welcome() {
     useEffect(() => {
-        // Micro-interactions and atmospheric effects for glass-cards
-        const handleMouseMove = (e: MouseEvent) => {
-            const card = (e.target as HTMLElement).closest('.glass-card') as HTMLElement;
-            if (card) {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            }
-        };
-
-        document.addEventListener('mousemove', handleMouseMove);
-
         // Simple scroll reveal
         const handleScroll = () => {
             const reveals = document.querySelectorAll('section');
@@ -35,8 +19,8 @@ export default function Welcome() {
                 const revealPoint = 150;
 
                 if (revealTop < windowHeight - revealPoint) {
-                    reveal.classList.add('opacity-100');
-                    reveal.classList.remove('opacity-0');
+                    reveal.classList.add('opacity-100', 'translate-y-0');
+                    reveal.classList.remove('opacity-0', 'translate-y-10');
                 }
             });
         };
@@ -45,32 +29,30 @@ export default function Welcome() {
 
         // Initialize sections for reveal animation
         document.querySelectorAll('section').forEach((s) => {
-            s.classList.add('transition-opacity', 'duration-1000', 'opacity-0');
+            s.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
         });
 
-        // Trigger scroll once on mount to show visible sections
-        handleScroll();
+        // Trigger scroll once on mount
+        setTimeout(handleScroll, 100);
 
         return () => {
-            document.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
     return (
         <>
-            <Head title="SMAN 1 Digital Nusantara | Masa Depan Pendidikan" />
+            <Head title="SMAN 1 Digital Nusantara | Smart School Ecosystem" />
 
             <div className="bg-background text-on-surface font-sans selection:bg-primary/30 selection:text-primary">
                 <Navbar />
 
                 <main>
                     <Hero />
+                    <Stats />
                     <About />
                     <Features />
-                    <HowItWorks />
                     <Testimonials />
-                    <CTA />
                 </main>
 
                 <Footer />

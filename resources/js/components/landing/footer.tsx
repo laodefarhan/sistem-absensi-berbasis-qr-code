@@ -1,57 +1,98 @@
 export default function Footer() {
     return (
-        <footer className="border-t border-white/5 bg-surface-container-lowest pt-20 pb-10">
-            <div className="mx-auto max-w-container-max px-margin-mobile md:px-margin-desktop">
-                <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-4">
-                    <div className="col-span-1 md:col-span-1">
-                        <div className="mb-6 font-headline text-headline-md font-bold text-primary">SMAN 1 Digital</div>
-                        <p className="text-sm leading-relaxed text-on-surface-variant">
-                            Platform manajemen sekolah modern yang berfokus pada integrasi teknologi untuk menciptakan ekosistem pendidikan yang lebih baik.
-                        </p>
-                    </div>
-                    <div>
-                        <h5 className="mb-6 font-bold">Navigasi</h5>
-                        <ul className="space-y-4 text-sm text-on-surface-variant">
-                            <li><a className="transition-colors hover:text-primary" href="#">Tentang Kami</a></li>
-                            <li><a className="transition-colors hover:text-primary" href="#">Kurikulum</a></li>
-                            <li><a className="transition-colors hover:text-primary" href="#">PPDB Digital</a></li>
-                            <li><a className="transition-colors hover:text-primary" href="#">Galeri</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 className="mb-6 font-bold">Bantuan</h5>
-                        <ul className="space-y-4 text-sm text-on-surface-variant">
-                            <li><a className="transition-colors hover:text-primary" href="#">Pusat Bantuan</a></li>
-                            <li><a className="transition-colors hover:text-primary" href="#">Kebijakan Privasi</a></li>
-                            <li><a className="transition-colors hover:text-primary" href="#">Syarat & Ketentuan</a></li>
-                            <li><a className="transition-colors hover:text-primary" href="#">FAQ</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 className="mb-6 font-bold">Kontak Kami</h5>
-                        <ul className="space-y-4 text-sm text-on-surface-variant">
-                            <li className="flex items-start gap-3">
-                                <span className="material-symbols-outlined mt-1 text-sm text-primary">location_on</span>
-                                <span>Jl. Pendidikan Digital No. 01, Jakarta Selatan</span>
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-sm text-primary">mail</span>
-                                <span>info@sman1digital.sch.id</span>
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-sm text-primary">call</span>
-                                <span>(021) 555-0123</span>
-                            </li>
-                        </ul>
+        <footer className="bg-surface-container-lowest border-t border-outline-variant relative w-full pt-20 pb-10">
+            <div className="container mx-auto px-container-padding grid grid-cols-1 md:grid-cols-4 gap-gutter mb-12">
+                <div>
+                    <div className="font-headline-md text-headline-md text-primary mb-6 font-bold">Nusantara Digital Edu</div>
+                    <p className="font-body-md text-body-md text-on-surface-variant mb-6">
+                        Solusi masa depan untuk sistem pendidikan yang lebih cerdas, transparan, dan terintegrasi.
+                    </p>
+                    <div className="flex gap-4">
+                        <a className="text-on-surface-variant hover:text-secondary transition-colors" href="#">
+                            <span className="material-symbols-outlined">social_leaderboard</span>
+                        </a>
+                        <a className="text-on-surface-variant hover:text-secondary transition-colors" href="#">
+                            <span className="material-symbols-outlined">photo_camera</span>
+                        </a>
+                        <a className="text-on-surface-variant hover:text-secondary transition-colors" href="#">
+                            <span className="material-symbols-outlined">alternate_email</span>
+                        </a>
                     </div>
                 </div>
-                <div className="flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-[12px] tracking-widest text-on-surface-variant uppercase md:flex-row">
-                    <p>© 2024 SMAN 1 Digital Nusantara. All rights reserved.</p>
-                    <div className="flex gap-6">
-                        <a className="transition-colors hover:text-secondary" href="#">Instagram</a>
-                        <a className="transition-colors hover:text-secondary" href="#">YouTube</a>
-                        <a className="transition-colors hover:text-secondary" href="#">Twitter</a>
-                    </div>
+                <div>
+                    <h4 className="font-label-md text-label-md font-bold mb-6 text-on-surface">Navigasi</h4>
+                    <ul className="space-y-3 font-label-sm text-label-sm text-on-surface-variant">
+                        <li>
+                            <a className="hover:text-primary transition-colors" href="#">
+                                Beranda
+                            </a>
+                        </li>
+                        <li>
+                            <a className="hover:text-primary transition-colors" href="#about">
+                                Tentang Sekolah
+                            </a>
+                        </li>
+                        <li>
+                            <a className="hover:text-primary transition-colors" href="#features">
+                                Fitur
+                            </a>
+                        </li>
+                        <li>
+                            <a className="hover:text-primary transition-colors" href="#">
+                                Informasi
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 className="font-label-md text-label-md font-bold mb-6 text-on-surface">Layanan</h4>
+                    <ul className="space-y-3 font-label-sm text-label-sm text-on-surface-variant">
+                        <li>
+                            <a className="hover:text-primary transition-colors" href="#">
+                                Absensi Digital
+                            </a>
+                        </li>
+                        <li>
+                            <a className="hover:text-primary transition-colors" href="#">
+                                E-Rapor
+                            </a>
+                        </li>
+                        <li>
+                            <a className="hover:text-primary transition-colors" href="#">
+                                Dashboard Siswa
+                            </a>
+                        </li>
+                        <li>
+                            <a className="hover:text-primary transition-colors" href="#">
+                                PPDB Online
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 className="font-label-md text-label-md font-bold mb-6 text-on-surface">Kontak</h4>
+                    <ul className="space-y-3 font-label-sm text-label-sm text-on-surface-variant">
+                        <li className="flex items-center gap-2">
+                            <span className="material-symbols-outlined text-sm">mail</span> info@sman1dn.sch.id
+                        </li>
+                        <li className="flex items-center gap-2">
+                            <span className="material-symbols-outlined text-sm">call</span> +62 812 3456 7890
+                        </li>
+                        <li className="flex items-center gap-2">
+                            <span className="material-symbols-outlined text-sm">location_on</span> Jakarta, Indonesia
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div className="container mx-auto px-container-padding border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p className="font-label-sm text-label-sm text-on-surface-variant opacity-60">© 2024 Nusantara Digital Edu. All rights reserved.</p>
+                <div className="flex gap-6 font-label-sm text-label-sm text-on-surface-variant opacity-60">
+                    <a className="hover:text-secondary" href="#">
+                        Privacy Policy
+                    </a>
+                    <a className="hover:text-secondary" href="#">
+                        Terms of Service
+                    </a>
                 </div>
             </div>
         </footer>

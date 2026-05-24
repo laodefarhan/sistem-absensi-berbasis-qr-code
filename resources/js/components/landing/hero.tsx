@@ -1,64 +1,60 @@
 import { Link } from '@inertiajs/react';
+import { useEffect, useRef } from 'react';
 
 export default function Hero() {
+    const floatingRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!floatingRef.current) return;
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            floatingRef.current.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        };
+        document.addEventListener('mousemove', handleMouseMove);
+        return () => document.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
     return (
-        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-20" id="home">
-            <div className="absolute inset-0 z-0">
+        <section className="relative h-screen flex items-center justify-center overflow-hidden hero-gradient">
+            <div className="absolute inset-0 z-0 opacity-40">
                 <img
-                    className="h-full w-full scale-105 object-cover opacity-30"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC92rdmcX6XmyaoskXKhrYjA4513DAvJGs1LVTK_V2pF0nhBkjg-92WPCPBHifblCGVrljSoe0wH7znWnIz9JO0kva4VPB8dmhTIjAwubVtTiuwoDEJGcs-n62e4kuTSQkhpv921xBR-TRYId1kaS6ec-3VJO2JFryeHqTdvwo2sTqiPUj6h8g_7bb0GsHKJS4yXgLJwQEo7C0tbcDcMAMX8lO_58u9DoZFjDCYeGHk3UE4QHTo0DYpQy99Q0yuaADe3_EJhDuOSew"
-                    alt="Modern School Architecture"
+                    className="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd1YoorgBcEjq6YpUOCESrWkOmSUmFF8BOwHu88ok5Q-O6gCsj0PFccBS_G1XEmh4HzxPyaUJGHyPkWo-KVtlZWpm-A1toHoUg4RYJL8warcDzfcbGAMXXaDIdDnAM8Dc4Im1PGJV0T85Ft7fcb_kgOd2BO_BTnTaiSkYAN727elTefuYZve4zg8qYYmLtncJ6Uf-nwwOxQPxAm24k-9pm6QwLiTe2ZkbDYOKxh1BAfaeDI1mJYDFgt6IOnYhaak2wKk2nX13M8arp"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-                <div className="absolute inset-0 bg-background/40 backdrop-blur-[2px]"></div>
             </div>
-
-            {/* Main Content Area */}
-            <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-margin-mobile text-center md:px-margin-desktop">
-                <div className="glass-card mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 px-4 py-2">
-                    <span className="material-symbols-outlined animate-pulse text-sm text-secondary">new_releases</span>
-                    <span className="text-label-md tracking-widest text-secondary uppercase">Transformasi Digital 2024</span>
+            <div className="container mx-auto px-container-padding relative z-10 text-center">
+                <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-primary/30 bg-primary/10 text-primary font-label-sm text-label-sm uppercase tracking-wider">
+                    Future of Learning
                 </div>
-                
-                <h1 className="mx-auto mb-6 max-w-4xl font-display text-display-lg leading-tight text-on-surface md:text-[64px] lg:leading-[1.1]">
-                    Sistem Absensi & Manajemen <br className="hidden md:block" />
-                    <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Sekolah Masa Depan</span>
+                <h1 className="font-display text-display-lg mb-6 max-w-4xl mx-auto glow-text">
+                    Membangun Generasi Unggul di Era <span className="text-primary">Digital Nusantara</span>
                 </h1>
-                
-                <p className="mx-auto mb-10 max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
-                    Wujudkan ekosistem pendidikan yang transparan, aman, dan efisien dengan teknologi manajemen berbasis cloud tercanggih di Indonesia.
+                <p className="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+                    Platform pendidikan terintegrasi yang menggabungkan teknologi AI, transparansi data, dan kenyamanan belajar untuk mencetak pemimpin masa depan.
                 </p>
-                
-                <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
-                    <Link
-                        href={route('register')}
-                        className="w-full rounded-xl bg-gradient-to-r from-primary-container to-primary px-10 py-4 font-headline text-headline-md text-white shadow-lg shadow-primary/20 transition-transform hover:scale-105 md:w-auto"
-                    >
-                        Mulai Sekarang
-                    </Link>
-                    <Link
-                        href={route('login')}
-                        className="glass-card w-full rounded-xl border-white/20 px-10 py-4 font-headline text-headline-md text-on-surface transition-colors hover:bg-white/5 md:w-auto"
-                    >
-                        Masuk Sistem
-                    </Link>
+                <div className="flex flex-col md:flex-row gap-4 justify-center">
+                    <button className="px-8 py-4 bg-primary-container text-on-primary-container rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-2 hover:brightness-110 transition-all">
+                        Mulai Belajar <span className="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                    <button className="px-8 py-4 bg-transparent border border-white/20 backdrop-blur-md rounded-xl font-headline-md text-headline-md hover:bg-white/5 transition-all">
+                        Lihat Fitur
+                    </button>
                 </div>
             </div>
-
-            {/* Hero Floating Stats - Better Positioning */}
-            <div className="relative z-20 mb-12 w-full max-w-4xl px-margin-mobile lg:block">
-                <div className="glass-card grid grid-cols-1 divide-y divide-white/10 rounded-3xl border border-white/10 p-2 md:grid-cols-3 md:divide-x md:divide-y-0">
-                    <div className="p-6 text-center">
-                        <div className="font-bold text-headline-lg text-primary">1.5k+</div>
-                        <div className="text-label-md tracking-wider text-on-surface-variant uppercase">Siswa Aktif</div>
-                    </div>
-                    <div className="p-6 text-center">
-                        <div className="font-bold text-headline-lg text-secondary">99.9%</div>
-                        <div className="text-label-md tracking-wider text-on-surface-variant uppercase">Uptime Absensi</div>
-                    </div>
-                    <div className="p-6 text-center">
-                        <div className="font-bold text-headline-lg text-tertiary">Real-Time</div>
-                        <div className="text-label-md tracking-wider text-on-surface-variant uppercase">Monitoring</div>
+            {/* Floating Stat Cards (Visual Only) */}
+            <div ref={floatingRef} className="absolute top-1/4 right-10 hidden lg:block animate-bounce" style={{ animationDuration: '4s' }}>
+                <div className="glass-card p-4 rounded-xl">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary">
+                            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
+                                bolt
+                            </span>
+                        </div>
+                        <div>
+                            <div className="font-label-sm text-label-sm text-on-surface-variant">Real-time Absensi</div>
+                            <div className="font-headline-md text-headline-md">100% Aktif</div>
+                        </div>
                     </div>
                 </div>
             </div>
